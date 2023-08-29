@@ -1,33 +1,38 @@
 package com.vo3dyx.SpringBoot.model;
 
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name="userboot")
+@Table(name = "userboot")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    int id;
+    private int id;
 
-    //@NotEmpty(message = "Enter name")
+    @NotEmpty(message = "Enter name")
     @Size(min = 2, max = 20, message = "Min and Max length between 2 and 20")
     @Column
-    String firstName;
-    //@NotEmpty(message = "Enter Family name")
+    private String firstName;
+    @NotEmpty(message = "Enter Family name")
     @Size(min = 2, max = 20, message = "Min and Max length between 2 and 20")
     @Column
-    String lastName;
+    private String lastName;
 
     @Min(value = 0, message = "Age can't be lower than 0")
     @Max(value = 100, message = "Please, enter your real age")
     @Column
-    int age;
+    private int age;
 
     public User() {
     }

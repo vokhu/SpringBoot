@@ -16,10 +16,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class Control {
-    final UserService userService;
+public class UserController {
+    private final UserService userService;
 
-    public Control(UserService userService) {
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 
